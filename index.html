@@ -4,26 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprende el Negocio de las Uñas - Masterclass</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QV6ZVLWCJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7QV6ZVLWCJ', {
+            'custom_map': {
+                'dimension1': 'page_section',
+                'dimension2': 'user_action'
+            }
+        });
+
+        // Función para seguimiento de clics en secciones importantes
+        function trackAction(action, category) {
+            gtag('event', action, {
+                'event_category': category,
+                'user_action': action,
+                'page_section': category
+            });
+        }
+    </script>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/logo.jpg" sizes="32x32">
-    <link rel="shortcut icon" href="img/logo.jpg">
-    <link rel="apple-touch-icon" href="img/logo.jpg">
-    <meta name="msapplication-TileImage" content="img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!-- Fuentes y estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header class="hero">
+    <!-- CTA Móvil - Solo visible en dispositivos móviles -->
+    <div class="mobile-cta">
+        <a href="#precio">¡INSCRIBIRME AHORA!</a>
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav class="main-nav">
         <div class="container">
-            <img src="img/hero-image.jpg" alt="Aprende el Negocio de las Uñas" class="hero-image">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="img/logo.jpg" alt="Logo">
+                </div>
+                <div class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link">Inicio</a></li>
+                    <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                    <li><a href="#modulos" class="nav-link">Contenido</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#faq" class="nav-link">Preguntas Frecuentes</a></li>
+                    <li><a href="#precio" class="nav-link">Precio</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#precio" class="nav-cta">Inscribirme AHORA</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <img src="img/Bg.jpg" alt="Banner principal" class="hero-image">
+        <div class="container">
             <div class="hero-content">
-                <h1>APRENDE EL NEGOCIO DE LAS UÑAS</h1>
-                <p class="subtitle">Conviértete en una manicurista profesional y monta tu propio negocio</p>
-                <a href="#modulos" class="cta-button">VER CONTENIDO</a>
+                <div class="hero-text-container">
+                    <h1>APRENDE EL NEGOCIO DE LAS UÑAS</h1>
+                    <p class="subtitle">Conviértete en una manicurista profesional y monta tu propio negocio</p>
+                </div>
+                <a href="#beneficios" class="cta-button" onclick="trackAction('Click en CTA del Hero', 'Hero')">Ver Beneficios</a>
             </div>
         </div>
     </header>
@@ -34,7 +91,7 @@
                 <h2 class="video-title">Descubre el Curso de Uñas Más Completo</h2>
                 <p class="video-description">Mira este video para conocer un adelanto de lo que aprenderás en nuestro curso profesional de uñas. ¡Comienza tu camino hacia la independencia financiera hoy mismo!</p>
                 <div class="video-wrapper">
-                    <video controls autoplay muted loop>
+                    <video controls autoplay muted>
                         <source src="Video/Aprende El Negocio De Las Uñas.mp4" type="video/mp4">
                         Tu navegador no soporta videos HTML5.
                     </video>
@@ -44,15 +101,10 @@
     </section>
 
     <div class="floating-countdown">
-        <p class="countdown-text">Esta oferta expirará en:</p>
+        <p class="countdown-text">APROVECHA LA OFERTA AHORA</p>
         <div id="countdown" class="countdown">
-            <div class="time-block">
-                <span id="minutes">30</span>
-                <span class="time-label">Minutos</span>
-            </div>
-            <div class="time-block">
-                <span id="seconds">00</span>
-                <span class="time-label">Segundos</span>
+            <div class="countdown-circle">
+                <span id="minutes">30</span>:<span id="seconds">00</span>
             </div>
         </div>
     </div>
@@ -61,62 +113,78 @@
         <div class="container">
             <div class="intro-box">
                 <h2 class="section-title">¿Te gustaría convertirte en una manicurista profesional y montar tu propio negocio?</h2>
-                <p class="intro-text">Con el MasterClass <strong>APRENDE EL NEGOCIO LAS UÑAS</strong>, aprenderás todas las técnicas para que te conviertas en una PROFESIONAL en el arte del arreglo de uñas y puedas generar altos ingresos.</p>
+                <p class="intro-text">Con el MasterClass <strong>APRENDE EL NEGOCIO DE LAS UÑAS</strong>, dominarás las técnicas más avanzadas para convertirte en una EXPERTA y generar ingresos que cambiarán tu vida. <span class="highlight">¡Comienza ahora tu camino hacia la independencia financiera!</span></p>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Formación 100% práctica</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Aprende a tu ritmo</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Conviértete en tu propia jefa</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="benefits">
+    <section class="benefits" id="beneficios">
         <div class="container">
             <h2 class="section-title">¿QUÉ VAS A LOGRAR?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-graduation-cap benefit-icon"></i>
-                    <p>Aprenderás todas las técnicas y te convertirás en una profesional.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-briefcase benefit-icon"></i>
-                    <p>Tendrás todas las herramientas para crear tu propio negocio y ser tu propia jefa.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-paint-brush benefit-icon"></i>
-                    <p>Realizar fantásticos y sorprendentes diseños.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-palette benefit-icon"></i>
-                    <p>Trabajar con combinaciones adecuadas de formas y colores.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-tools benefit-icon"></i>
-                    <p>Conocer materiales y herramientas adecuadas y de alta calidad para lograr un trabajo con alto profesionalismo.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-chart-line benefit-icon"></i>
-                    <p>Aprenderás técnicas que están en tendencia.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-store benefit-icon"></i>
-                    <p>Conocerás el Mercado donde ofrecerás tus servicios.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-dollar-sign benefit-icon"></i>
-                    <p>Sabrás todas las maneras de Monetizar tu nueva habilidad.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-laptop benefit-icon"></i>
-                    <p>Aprenderás habilidades digitales para crear tu negocio y ayudarte a conseguir clientes.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fab fa-facebook-group benefit-icon"></i>
-                    <p>Tendrás acceso a un grupo privado de Facebook con otras alumnas del programa.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-file-download benefit-icon"></i>
-                    <p>Tendrás material de apoyo descargable debajo de los videos.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-certificate benefit-icon"></i>
-                    <p>Accederás al certificado avalado por Hotmart y Seminarios Online.</p>
+            <div class="benefits-slider">
+                <div class="benefits-slides">
+                    <div class="benefit-card">
+                        <i class="fas fa-graduation-cap benefit-icon"></i>
+                        <p>Aprenderás todas las técnicas y te convertirás en una profesional.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-briefcase benefit-icon"></i>
+                        <p>Tendrás todas las herramientas para crear tu propio negocio y ser tu propia jefa.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-paint-brush benefit-icon"></i>
+                        <p>Realizar fantásticos y sorprendentes diseños.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-palette benefit-icon"></i>
+                        <p>Trabajar con combinaciones adecuadas de formas y colores.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-tools benefit-icon"></i>
+                        <p>Conocer materiales y herramientas adecuadas y de alta calidad para lograr un trabajo con alto profesionalismo.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line benefit-icon"></i>
+                        <p>Aprenderás técnicas que están en tendencia.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-store benefit-icon"></i>
+                        <p>Conocerás el Mercado donde ofrecerás tus servicios.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-dollar-sign benefit-icon"></i>
+                        <p>Sabrás todas las maneras de Monetizar tu nueva habilidad.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-laptop benefit-icon"></i>
+                        <p>Aprenderás habilidades digitales para crear tu negocio y ayudarte a conseguir clientes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fab fa-facebook benefit-icon"></i>
+                        <p>Tendrás acceso a un grupo privado de Facebook con otras alumnas del programa.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-file-download benefit-icon"></i>
+                        <p>Tendrás material de apoyo descargable debajo de los videos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-certificate benefit-icon"></i>
+                        <p>Accederás al certificado avalado por Hotmart y Seminarios Online.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,14 +303,31 @@
             <div class="about-box">
                 <h2 class="section-title">ACERCA DE LA PRODUCTORA</h2>
                 <div class="about-content">
-                    <p>Desarrollado por <strong>GENESIS MENDOZA</strong> profesional de alto nivel. Ha trabajado en diversos salones hasta crear su propio salón con clientes propios logrando tener una trayectoria de más de 6 años. Se ha formado con artistas nacionales e internacionales perfeccionando sus técnicas, obteniendo más conocimientos y (más ingresos).</p>
-                    <p>Por ello ha decidido realizar esta formación 100% práctica y online para aportarte sus conocimientos y guiarte paso a paso en tu camino en este hermoso rubro y garantizarte el éxito en este camino.</p>
+                    <div class="about-text">
+                        <h3 class="about-name">GENESIS MENDOZA</h3>
+                        <p class="about-description">Profesional con <strong>más de 6 años de experiencia</strong> en el mundo de las uñas. Ha transformado su pasión en un negocio exitoso, creando su propio salón desde cero y formándose con los mejores artistas nacionales e internacionales.</p>
+                        <p class="about-mission">Su misión es compartir contigo todas las técnicas y secretos que le han permitido generar <strong>ingresos estables y crecientes</strong>, para que tú también puedas lograr tu independencia financiera en este apasionante mundo.</p>
+                        <div class="about-credentials">
+                            <div class="credential">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Formación Internacional</span>
+                </div>
+                            <div class="credential">
+                                <i class="fas fa-business-time"></i>
+                                <span>Emprendedora Exitosa</span>
+                            </div>
+                            <div class="credential">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Mentora Especializada</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials" id="testimonios">
         <div class="container">
             <h2 class="section-title">TESTIMONIOS DE NUESTRAS ALUMNAS</h2>
             <div class="testimonial-slider">
@@ -309,19 +394,64 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-prev" aria-label="Anterior testimonio"><i class="fas fa-arrow-left"></i></button>
-                <button class="slider-next" aria-label="Siguiente testimonio"><i class="fas fa-arrow-right"></i></button>
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <img src="img/testimonio8.jpeg" alt="Testimonio 8" class="testimonial-image">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Este curso fue exactamente lo que necesitaba para mejorar mis técnicas. Los módulos están perfectamente estructurados y he podido crear diseños que antes parecían imposibles. Mis clientas están encantadas y mi negocio ha crecido significativamente."</p>
+                            <p class="testimonial-author">Claudia Jiménez</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <img src="img/testimonio9.jpeg" alt="Testimonio 9" class="testimonial-image">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Gracias a este curso pude empezar mi negocio desde cero, sin experiencia previa. Las explicaciones son tan claras que pude dominar las técnicas básicas en poco tiempo. Lo recomiendo a cualquiera que quiera iniciar en este mundo de las uñas."</p>
+                            <p class="testimonial-author">Valentina López</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <img src="img/testimonio10.jpeg" alt="Testimonio 10" class="testimonial-image">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"La inversión en este curso ha sido la mejor decisión para mi carrera. Los módulos de marketing digital me ayudaron a posicionarme en redes sociales y ahora tengo más clientes de los que puedo atender. ¡Una maravilla de curso!"</p>
+                            <p class="testimonial-author">Lucía Torres</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <img src="img/testimonio11.jpeg" alt="Testimonio 11" class="testimonial-image">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"El módulo de técnicas 3D cambió completamente mi forma de trabajar. Ahora puedo ofrecer servicios premium que mis clientas adoran y están dispuestas a pagar más. El retorno de la inversión fue inmediato y ahora gano el triple."</p>
+                            <p class="testimonial-author">Isabel Navarro</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="certificate" id="certificado">
         <div class="container">
-            <h2 class="section-title">CERTIFICADO AVALADO</h2>
+            <h2 class="section-title">CERTIFICADO DE PROFESIONALIZACIÓN</h2>
             <div class="certificate-container">
+                <div class="certificate-content">
+                    <div class="certificate-text">
+                        <h3>Convierte tu pasión en una profesión certificada</h3>
+                        <p>Al completar este curso, recibirás un certificado digital avalado que valida tus habilidades y conocimientos como profesional en el arte del arreglo de uñas.</p>
+                        <ul class="certificate-features">
+                            <li><i class="fas fa-check-circle"></i> Avalado por Hotmart y Seminarios Online</li>
+                            <li><i class="fas fa-check-circle"></i> Reconocido en el sector profesional</li>
+                            <li><i class="fas fa-check-circle"></i> Formato digital descargable</li>
+                        </ul>
+                    </div>
+                    <div class="certificate-image-container">
                 <img src="img/certificado.jpg" alt="Certificado del curso" class="certificate-image">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -334,7 +464,7 @@
                     <span class="offer-timer">Solo por tiempo limitado</span>
                 </div>
                 <div class="pricing-banner">
-                    <!-- La imagen ahora se maneja con CSS background-image -->
+                    <img src="img/Bg.jpg" alt="Banner de oferta especial" class="pricing-banner-image">
                 </div>
                 <div class="pricing-content">
                     <div class="product-features">
@@ -348,31 +478,122 @@
                     </div>
                     <div class="price-tag">
                         <span class="original-price">$159</span>
-                        <span class="current-price">$85</span>
+                        <span class="current-price">$84</span>
                     </div>
                     <div class="guarantee">
                         <i class="fas fa-shield-alt"></i>
                         <div class="guarantee-content">
                             <h3>Garantía de 7 días</h3>
-                            <p>Si el curso no cumple con tus expectativas, te devolvemos el 100% de tu dinero sin preguntas.</p>
+                            <p>Si el curso no cumple con tus expectativas, te devolveremos el 100% de tu dinero sin preguntas.</p>
                         </div>
                     </div>
                     <div class="buy-now">
-                        <a href="https://hotm.art/AprendeelNegociodelasUnas-CheckOut" class="buy-button" target="_blank">¡QUIERO INSCRIBIRME AHORA!</a>
+                        <a href="https://hotm.art/AprendeelNegociodelasUnas-CheckOut" class="buy-button" target="_blank" onclick="trackAction('Click en botón de compra', 'Precio')">¡QUIERO INSCRIBIRME AHORA!</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact">
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Necesito experiencia previa para tomar el curso?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, el curso está diseñado para principiantes y personas con experiencia. Empezamos desde lo básico y avanzamos hasta técnicas profesionales, por lo que cualquier persona puede seguirlo sin problemas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuánto tiempo tendré acceso al contenido?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El acceso al curso es de por vida. Una vez inscrita, podrás acceder al contenido cuando quieras y todas las veces que necesites, incluyendo las futuras actualizaciones que se hagan del programa.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué materiales necesito para seguir el curso?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>En el primer módulo hacemos una presentación detallada de todos los materiales necesarios. Además, compartimos recomendaciones de marcas y tiendas donde puedes adquirirlos a buenos precios.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Recibo algún certificado al terminar?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, al completar el curso recibirás un certificado digital avalado por Hotmart y Seminarios Online que podrás incluir en tu currículum o mostrar a tus clientes para demostrar tu formación profesional.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo funciona la garantía de 7 días?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si después de 7 días de iniciar el curso consideras que no cumple con tus expectativas, puedes solicitar la devolución del 100% de tu dinero sin preguntas ni condiciones. Tu satisfacción es nuestra prioridad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿En cuánto tiempo podré comenzar a trabajar profesionalmente?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Muchas alumnas comienzan a ofrecer servicios básicos después de completar los primeros módulos, aproximadamente a las 2-3 semanas de estudio consistente. Para dominar técnicas avanzadas, generalmente se requieren 2-3 meses de práctica regular.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
         <div class="container">
             <div class="contact-box">
                 <h2 class="section-title">CONTÁCTANOS</h2>
                 <div class="contact-content">
-                    <p>¿Tienes dudas sobre el curso? Estamos aquí para ayudarte. Contáctanos directamente a través de Telegram y te responderemos a la brevedad.</p>
-                    <a href="https://t.me/SPMarketing_KR" class="telegram-button" target="_blank">
-                        <i class="fab fa-telegram"></i> Contactar por Telegram
+                    <p>¿Tienes dudas sobre el curso? Estamos aquí para ayudarte.</p>
+                    
+                    <div id="form-messages"></div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono (opcional)</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje (opcional)</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Enviar Mensaje</button>
+                    </form>
+                    
+                    <p class="contact-divider">O contáctanos directamente por email</p>
+                    
+                    <a href="mailto:hristiankrasimirov7@gmail.com?subject=Aprende%20el%20negocio%20de%20las%20uñas" class="email-button" target="_blank">
+                        <i class="fas fa-envelope"></i> Contactar por Email
                     </a>
                 </div>
             </div>
@@ -382,7 +603,23 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 SPMarketing - Agency. Todos los derechos reservados.</p>
+                <div class="footer-menu">
+                    <ul class="footer-links">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#modulos">Contenido</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#precio">Precio</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <a href="legal/privacidad.html" target="_blank">Política de Privacidad</a>
+                    <a href="legal/terminos.html" target="_blank">Términos y Condiciones</a>
+                    <a href="legal/cookies.html" target="_blank">Política de Cookies</a>
+                </div>
+                <p class="copyright">&copy; 2025 SPMarketing - Agency. Todos los derechos reservados.</p>
                 <div class="footer-image">
                     <img src="img/footer.png" alt="Footer logo" class="footer-logo">
                 </div>
@@ -390,6 +627,960 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Este sitio web utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="legal/cookies.html" target="_blank">política de cookies</a>.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-accept">Aceptar</button>
+                <button id="reject-cookies" class="cookie-reject">Rechazar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/contacto.js"></script>
+
+<!-- INICIO CHATBOT -->
+<style>
+    #chatbot-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 998;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+    }
+    
+    #chatbot-icon:hover {
+        transform: scale(1.1);
+    }
+    
+    #chatbot-container {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 300px;
+        height: 400px;
+        background-color: white;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    #chatbot-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #chatbot-header h3 {
+        margin: 0;
+        font-size: 15px;
+    }
+    
+    #close-chatbot {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    #chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #f9f9f9;
+    }
+    
+    .bot-message, .user-message {
+        max-width: 80%;
+        padding: 8px 12px;
+        border-radius: 15px;
+        margin-bottom: 5px;
+        word-wrap: break-word;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .bot-message {
+        align-self: flex-start;
+        background-color: #f0f0f0;
+        color: #333;
+        border-top-left-radius: 5px;
+    }
+    
+    .user-message {
+        align-self: flex-end;
+        background-color: var(--primary-color);
+        color: white;
+        border-top-right-radius: 5px;
+    }
+    
+    .typing-indicator {
+        align-self: flex-start;
+        background-color: transparent;
+        padding: 6px 10px 2px 2px;
+        display: none;
+        align-items: center;
+        margin-bottom: 0;
+        position: relative;
+        left: 2px;
+        z-index: 10;
+    }
+    
+    .typing-dot {
+        width: 5px;
+        height: 5px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        margin: 0 2px;
+        opacity: 0.7;
+    }
+    
+    .typing-dot:nth-child(1) {
+        animation: typingBounce 1.3s infinite 0s;
+    }
+    
+    .typing-dot:nth-child(2) {
+        animation: typingBounce 1.3s infinite 0.2s;
+    }
+    
+    .typing-dot:nth-child(3) {
+        animation: typingBounce 1.3s infinite 0.4s;
+    }
+    
+    @keyframes typingBounce {
+        0%, 60%, 100% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(-4px);
+        }
+    }
+    
+    #chat-options {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: white;
+        border-top: 1px solid #eee;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+    
+    .option-button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 6px 12px;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.2s;
+    }
+    
+    .option-button:hover {
+        background-color: var(--primary-dark);
+    }
+    
+    .section-scroll-btn {
+        background-color: #f0f0f0;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 20px;
+        padding: 6px 12px;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        transition: all 0.2s;
+    }
+    
+    .section-scroll-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    #chatbot-popup {
+        position: fixed;
+        bottom: 75px;
+        right: 75px;
+        background-color: white;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        max-width: 180px;
+        z-index: 997;
+        font-size: 13px;
+        display: none;
+    }
+    
+    #chatbot-popup::after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        right: -10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid white;
+    }
+    
+    .redirect-message {
+        align-self: flex-start;
+        background-color: #f0f0f0;
+        border-radius: 15px;
+        padding: 12px 16px;
+        margin-bottom: 5px;
+        color: #333;
+        border-top-left-radius: 5px;
+        font-weight: bold;
+    }
+    
+    .redirect-timer {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-left: 5px;
+    }
+    
+    @media (max-width: 480px) {
+        #chatbot-container {
+            width: 110px;
+            height: 150px;
+            right: 5px;
+            bottom: 40px;
+            z-index: 9999;
+            transform: scale(0.9);
+            transform-origin: bottom right;
+        }
+        
+        #chat-messages {
+            padding: 2px;
+            max-height: 80px;
+        }
+        
+        #chat-options {
+            padding: 1px;
+            max-height: 40px;
+            gap: 1px;
+        }
+        
+        .bot-message, .user-message {
+            font-size: 6px;
+            padding: 2px 3px;
+            max-width: 95%;
+            margin-bottom: 1px;
+            line-height: 1;
+        }
+        
+        .option-button {
+            font-size: 5px;
+            padding: 1px 2px;
+            margin-bottom: 1px;
+            line-height: 1;
+        }
+        
+        .section-scroll-btn {
+            font-size: 5px;
+            padding: 1px 2px;
+            margin-top: 1px;
+        }
+        
+        #chatbot-popup {
+            max-width: 60px;
+            right: 35px;
+            bottom: 35px;
+            font-size: 6px;
+            padding: 3px;
+            z-index: 9999;
+        }
+        
+        #chatbot-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 10px;
+            bottom: 8px;
+            right: 5px;
+            z-index: 9998;
+        }
+        
+        #chatbot-header {
+            padding: 2px 3px;
+        }
+        
+        #chatbot-header h3 {
+            font-size: 7px;
+        }
+        
+        #close-chatbot {
+            font-size: 9px;
+        }
+        
+        .typing-indicator {
+            padding: 1px 2px 0px 0px;
+        }
+        
+        .typing-dot {
+            width: 2px;
+            height: 2px;
+            margin: 0 1px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        #chatbot-container {
+            width: 100px;
+            height: 130px;
+            right: 3px;
+            bottom: 35px;
+            transform: scale(0.85);
+            z-index: 9999;
+        }
+        
+        #chatbot-popup {
+            max-width: 50px;
+            right: 30px;
+            bottom: 30px;
+            font-size: 5px;
+            padding: 2px;
+            z-index: 9999;
+        }
+        
+        .bot-message, .user-message {
+            font-size: 5px;
+            padding: 1px 2px;
+            margin-bottom: 1px;
+        }
+        
+        #chat-options {
+            max-height: 30px;
+            padding: 1px;
+            gap: 1px;
+        }
+        
+        .option-button {
+            font-size: 4px;
+            padding: 1px 2px;
+        }
+        
+        .section-scroll-btn {
+            font-size: 4px;
+            padding: 1px 2px;
+        }
+        
+        #chatbot-icon {
+            width: 20px;
+            height: 20px;
+            font-size: 8px;
+            bottom: 8px;
+            right: 4px;
+            z-index: 9998;
+        }
+    }
+    
+    /* Asegurar que todos los elementos del chatbot estén por encima */
+    #chatbot-container, #chatbot-popup, #chatbot-icon {
+        z-index: 9999 !important;
+    }
+</style>
+
+<!-- Chatbot Icon -->
+<div id="chatbot-icon"><i class="fas fa-comment-dots"></i></div>
+
+<!-- Popup de saludo -->
+<div id="chatbot-popup">Hola 👋 Soy tu Asistente Virtual, ¿Puedo Ayudarte?</div>
+
+<!-- Chatbot Container -->
+<div id="chatbot-container">
+    <div id="chatbot-header">
+        <h3>Asistente de Uñas 💅</h3>
+        <button id="close-chatbot">×</button>
+    </div>
+    <div id="chat-messages">
+        <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    </div>
+    <div id="chat-options"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elementos DOM
+        const chatbotIcon = document.getElementById('chatbot-icon');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const closeButton = document.getElementById('close-chatbot');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatOptions = document.getElementById('chat-options');
+        const chatbotPopup = document.getElementById('chatbot-popup');
+        const typingIndicator = document.querySelector('.typing-indicator');
+        
+        // Variables de estado
+        let chatIsOpen = false;
+        let hasInteracted = false;
+        
+        // Respuestas predefinidas
+        const responses = {
+            "inicio": {
+                "message": "👋 ¡Hola! Soy tu asistente virtual del curso Aprende el Negocio de las Uñas. ¿En qué puedo ayudarte hoy?",
+                "options": [
+                    {"text": "🔍 ¿De qué trata el curso?", "value": "about_course"},
+                    {"text": "📚 Ver contenido del curso", "value": "course_content"},
+                    {"text": "💰 Precio y promociones", "value": "pricing"},
+                    {"text": "❓ Preguntas frecuentes", "value": "faq"},
+                    {"text": "👜 ¡Quiero comprar ahora!", "value": "buy_now"}
+                ]
+            },
+            "buy_now": {
+                "message": "¡Excelente decisión! Voy a redirigirte a nuestra página de compra segura.",
+                "redirect": "https://hotm.art/AprendeelNegociodelasUnas-CheckOut"
+            },
+            "after_purchase": {
+                "message": "¿Puedo ayudarte en algo mas?",
+                "options": [
+                    {"text": "📚 Ver contenido del curso", "value": "course_content"},
+                    {"text": "❓ Preguntas frecuentes", "value": "faq"},
+                    {"text": "👩‍🏫 ¿Quién imparte el curso?", "value": "instructor"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Explorar el curso ahora",
+                    "section": "#modulos"
+                }
+            },
+            "about_course": {
+                "message": "El curso 'Aprende el Negocio de las Uñas' te enseña a convertirte en una manicurista profesional y a montar tu propio negocio de uñas. Aprenderás todas las técnicas para hacer diseños profesionales y estrategias para monetizar tu talento.",
+                "options": [
+                    {"text": "📚 ¿Qué beneficios obtendré?", "value": "benefits"},
+                    {"text": "👩‍🏫 ¿Quién imparte el curso?", "value": "instructor"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver detalles del curso aquí",
+                    "section": "#modulos"
+                }
+            },
+            "benefits": {
+                "message": "Con este curso podrás:\n\n✅ Aprender todas las técnicas de uñas profesionales\n✅ Crear tu propio negocio y ser tu propia jefa\n✅ Realizar diseños fantásticos que tus clientes amarán\n✅ Conocer materiales y herramientas de calidad\n✅ Aprender técnicas en tendencia\n✅ Monetizar tu nueva habilidad\n✅ Acceso a un grupo privado de Facebook\n✅ Material de apoyo descargable\n✅ Certificado avalado por Hotmart",
+                "options": [
+                    {"text": "📚 Ver el contenido del curso", "value": "course_content"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver todos los beneficios aquí",
+                    "section": "#beneficios"
+                }
+            },
+            "instructor": {
+                "message": "El curso es impartido por Genesis Mendoza, profesional con más de 6 años de experiencia. Ha trabajado en varios salones hasta crear su propio negocio exitoso. Se ha formado con artistas nacionales e internacionales para perfeccionar sus técnicas y ahora comparte todo su conocimiento contigo.",
+                "options": [
+                    {"text": "💼 Ver testimonios de alumnas", "value": "testimonials"},
+                    {"text": "📚 Ver el contenido del curso", "value": "course_content"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Conocer más sobre la instructora",
+                    "section": ".about"
+                }
+            },
+            "course_content": {
+                "message": "✅ *EL CURSO COMPLETO INCLUYE:*\n\n📚 5 módulos completos con +25 lecciones\n🎬 7+ horas de vídeo HD\n📝 Materiales descargables y plantillas\n👩‍🏫 Acceso a grupo privado de Facebook\n🛠️ Herramientas de negocio y marketing\n🏆 Certificado digital al completar\n\n⭐ *BONUS ESPECIALES:*\n▫️ Instalación y uso de WhatsApp Business\n▫️ Guía de finanzas para principiantes\n▫️ Plantillas para redes sociales\n▫️ Descuentos en materiales\n\n😊 *BENEFICIOS:*\n▫️ Acceso de por vida al contenido\n▫️ Actualizaciones gratuitas\n▫️ Soporte técnico\n▫️ Garantía de satisfacción",
+                "options": [
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver contenido completo aquí",
+                    "section": "#modulos"
+                }
+            },
+            "pricing": {
+                "message": "El curso tiene un valor de $47 USD (pago único).\n\nIncluye acceso de por vida a todo el material y actualizaciones futuras.\n\nAceptamos todas las formas de pago: tarjetas de crédito/débito, PayPal y transferencia bancaria.",
+                "options": [
+                    {"text": "📚 ¿Qué incluye el curso?", "value": "course_content"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "⚠️ ¿Hay garantía?", "value": "guarantee"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver precio y bonos aquí",
+                    "section": "#precio"
+                }
+            },
+            "faq": {
+                "message": "Estas son las preguntas más frecuentes sobre el curso:",
+                "options": [
+                    {"text": "❓ ¿Necesito experiencia previa?", "value": "faq_1"},
+                    {"text": "❓ ¿Cuánto tiempo tendré acceso?", "value": "faq_2"},
+                    {"text": "❓ ¿Qué materiales necesito?", "value": "faq_3"},
+                    {"text": "❓ ¿Recibo certificado?", "value": "faq_4"},
+                    {"text": "❓ ¿Puedo ver las clases en mi celular?", "value": "faq_5"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver Preguntas Frecuentes",
+                    "section": "#faq"
+                }
+            },
+            "faq_1": {
+                "message": "No, el curso está diseñado para principiantes y personas con experiencia. Empezamos desde lo básico y avanzamos hasta técnicas profesionales, por lo que cualquier persona puede seguirlo sin problemas.",
+                "options": [
+                    {"text": "❓ Ver más preguntas frecuentes", "value": "faq"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver Preguntas Frecuentes",
+                    "section": "#faq"
+                }
+            },
+            "faq_2": {
+                "message": "El acceso al curso es de por vida. Una vez inscrita, podrás acceder al contenido cuando quieras y todas las veces que necesites, incluyendo las futuras actualizaciones que se hagan del programa.",
+                "options": [
+                    {"text": "❓ Ver más preguntas frecuentes", "value": "faq"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver Preguntas Frecuentes",
+                    "section": "#faq"
+                }
+            },
+            "faq_3": {
+                "message": "En el primer módulo hacemos una presentación detallada de todos los materiales necesarios. Además, compartimos recomendaciones de marcas y tiendas donde puedes adquirirlos a buenos precios.",
+                "options": [
+                    {"text": "❓ Ver más preguntas frecuentes", "value": "faq"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver contenido del curso",
+                    "section": "#modulos"
+                }
+            },
+            "faq_4": {
+                "message": "Sí, al completar el curso recibirás un certificado digital avalado por Hotmart y Seminarios Online que podrás incluir en tu currículum o mostrar a tus clientes para demostrar tu formación profesional.",
+                "options": [
+                    {"text": "❓ Ver más preguntas frecuentes", "value": "faq"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver Certificado",
+                    "section": "#certificado"
+                }
+            },
+            "faq_5": {
+                "message": "¡Sí! El curso está optimizado para dispositivos móviles. Puedes acceder a todas las lecciones desde tu smartphone o tablet, lo que te permite aprender donde y cuando quieras.",
+                "options": [
+                    {"text": "❓ Ver más preguntas frecuentes", "value": "faq"},
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ir a preguntas frecuentes",
+                    "section": "#faq"
+                }
+            },
+            "guarantee": {
+                "message": "✅ *GARANTÍA DE SATISFACCIÓN 100%*\n\nTenemos una política de garantía de 7 días.\n\nSi por alguna razón el curso no cumple con tus expectativas, simplemente envíanos un email dentro de los primeros 7 días después de tu compra y te devolveremos el 100% de tu dinero.\n\n⚠️ En el propio Email de la compra puedes solicitar el Reembolso y destacame este mensaje",
+                "options": [
+                    {"text": "💰 ¿Cuál es el precio?", "value": "pricing"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver detalles de la garantía",
+                    "section": "#precio"
+                }
+            },
+            "testimonials": {
+                "message": "👩‍🦰 *María G., Medellín*\n\"Increíble curso, en solo 2 meses pude montar mi propio negocio desde casa y ya tengo 20 clientas fijas.\"\n\n👩‍🦱 *Laura T., Bogotá*\n\"Las técnicas son súper claras y fáciles de seguir. La inversión vale 100% la pena, he recuperado 3 veces lo que pagué.\"\n\n👩 *Carmen D., Ciudad de México*\n\"Antes intenté aprender con tutoriales gratuitos pero siempre me faltaba algo. Este curso es completo y el soporte es excelente.\"\n\n👩‍🦳 *Daniela P., Buenos Aires*\n\"Lo que más me gustó fueron los módulos de negocio. Ahora no solo hago uñas bonitas sino que sé cómo cobrar y conseguir clientes.\"",
+                "options": [
+                    {"text": "💰 ¿Cuánto cuesta el curso?", "value": "pricing"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver más testimonios aquí",
+                    "section": "#testimonios"
+                }
+            },
+            "modules_detail": {
+                "message": "🔴 *MÓDULO 1: PRIMEROS PASOS*\n▫️ Introducción al curso\n▫️ Materiales básicos\n▫️ Anatomía de la uña\n▫️ Tipos de uñas\n\n🔵 *MÓDULO 2: VAMOS A LA PRÁCTICA*\n▫️ Preparación\n▫️ Manicura rusa\n▫️ Técnicas básicas\n▫️ Uñas acrílicas\n▫️ Uñas en gel\n▫️ Diseños básicos y avanzados\n\n🟢 *MÓDULO 3: MONETIZA TU TALENTO*\n▫️ Cómo fijar precios\n▫️ Estrategias de marketing\n▫️ Fotografía para redes\n▫️ Conseguir clientes\n\n🟡 *MÓDULO 4: BONUS*\n▫️ WhatsApp Business\n▫️ Finanzas básicas\n▫️ Atención al cliente\n\n🟠 *MÓDULO 5: FAQ* \n▫️ Certificados\n▫️ Soporte técnico",
+                "options": [
+                    {"text": "💵 ¿Cuánto cuesta el curso?", "value": "pricing"},
+                    {"text": "👜 ¡Quiero inscribirme ahora!", "value": "buy_now"},
+                    {"text": "◀️ Regresar al menú principal", "value": "inicio"}
+                ],
+                "scrollButton": {
+                    "text": "👉 Ver detalles completos aquí",
+                    "section": "#modulos"
+                }
+            }
+        };
+        
+        // Función para mostrar indicador de "escribiendo"
+        function showTypingIndicator() {
+            // Limpiar cualquier indicador existente
+            const existingIndicator = chatMessages.querySelector('.typing-indicator');
+            if (existingIndicator) {
+                existingIndicator.remove();
+            }
+            
+            // Crear y añadir un nuevo indicador más minimalista
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            
+            // Asegurarse de que sea visible
+            typingDiv.style.display = 'flex';
+            
+            // Hacer scroll para que sea visible
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Función para ocultar indicador de "escribiendo"
+        function hideTypingIndicator() {
+            const existingIndicator = chatMessages.querySelector('.typing-indicator');
+            if (existingIndicator) {
+                existingIndicator.remove();
+            }
+        }
+        
+        // Función para mostrar mensaje del bot con delay
+        function addBotMessage(message) {
+            // Mostrar indicador de escritura primero
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                // Ocultar indicador de escritura
+                hideTypingIndicator();
+                
+                // Añadir mensaje del bot
+            const messageElement = document.createElement('div');
+            messageElement.className = 'bot-message';
+            messageElement.innerHTML = message.replace(/\n/g, '<br>');
+            chatMessages.appendChild(messageElement);
+                
+                // Scroll al final
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Mostrar opciones inmediatamente después del mensaje
+                const responseData = responses[Object.keys(responses).find(key => 
+                    responses[key].message === message)];
+                if (responseData) {
+                    const scrollBtn = responseData.scrollButton ? responseData.scrollButton : null;
+                    if (responseData.options && responseData.options.length > 0) {
+                        showOptions(responseData.options, scrollBtn);
+                    }
+                }
+            }, 3000); // Aumentado a 3 segundos
+        }
+        
+        // Función para mostrar mensaje de redirección con cuenta regresiva
+        function showRedirectMessage(url) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'redirect-message';
+            messageElement.innerHTML = `Te voy a redirigir en <span class="redirect-timer">5</span> segundos...`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            const timerSpan = messageElement.querySelector('.redirect-timer');
+            let counter = 5;
+            
+            // Iniciar cuenta regresiva
+            const countdown = setInterval(() => {
+                counter--;
+                timerSpan.textContent = counter;
+                
+                if (counter <= 0) {
+                    clearInterval(countdown);
+                    window.open(url, '_blank');
+                }
+            }, 1000);
+        }
+        
+        // Función para mostrar mensaje del usuario
+        function addUserMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'user-message';
+            messageElement.innerHTML = message.replace(/\n/g, '<br>');
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Función para mostrar opciones de respuesta y botón de sección
+        function showOptions(options, scrollButton = null) {
+            chatOptions.innerHTML = '';
+            
+            // Primero agregamos el botón de scroll a la sección si existe
+            if (scrollButton) {
+                const sectionButton = document.createElement('button');
+                sectionButton.className = 'section-scroll-btn';
+                sectionButton.textContent = scrollButton.text;
+                
+                sectionButton.addEventListener('click', () => {
+                    // Cerrar el chat
+                    chatbotContainer.style.display = 'none';
+                    chatIsOpen = false;
+                    
+                    // Si hay URL, abrir en nueva pestaña
+                    if (scrollButton.url) {
+                        window.open(scrollButton.url, '_blank');
+                        return;
+                    }
+                    
+                    // Hacer scroll a la sección
+                    const targetElement = document.querySelector(scrollButton.section);
+                    if (targetElement) {
+                        const navHeight = document.querySelector('.main-nav')?.offsetHeight || 0;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+                
+                chatOptions.appendChild(sectionButton);
+            }
+            
+            // Luego agregamos las opciones de respuesta
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'option-button';
+                button.textContent = option.text;
+                
+                button.addEventListener('click', () => {
+                    // Agregar mensaje del usuario
+                    addUserMessage(option.text);
+                    
+                    // Limpiar opciones
+                    chatOptions.innerHTML = '';
+                    
+                    // Obtener la respuesta basada en la opción seleccionada
+                    const responseData = responses[option.value];
+                    if (responseData) {
+                        // Si es una compra directa, mostrar mensaje y redirigir
+                        if (responseData.redirect) {
+                            // Redirección directa para buy_now
+                            if (option.value === "buy_now") {
+                                // Mostrar indicador de escritura
+                                showTypingIndicator();
+                                
+                                // Mostrar mensaje de bot después de 3 segundos
+                        setTimeout(() => {
+                                    // Ocultar indicador de escritura
+                                    hideTypingIndicator();
+                                    
+                                    const messageElement = document.createElement('div');
+                                    messageElement.className = 'bot-message';
+                                    messageElement.innerHTML = responseData.message.replace(/\n/g, '<br>');
+                                    chatMessages.appendChild(messageElement);
+                                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                                    
+                                    // Abrir ventana de compra
+                                    window.open(responseData.redirect, '_blank');
+                                    
+                                    // Mostrar mensaje de seguimiento después de 1 segundo
+                                    setTimeout(() => {
+                                        // Mostrar indicador de escritura para el mensaje de seguimiento
+                                        showTypingIndicator();
+                                        
+                                        setTimeout(() => {
+                                            // Ocultar indicador de escritura
+                                            hideTypingIndicator();
+                                            
+                                            const followUpElement = document.createElement('div');
+                                            followUpElement.className = 'bot-message';
+                                            followUpElement.innerHTML = responses.after_purchase.message.replace(/\n/g, '<br>');
+                                            chatMessages.appendChild(followUpElement);
+                                            
+                                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                                            
+                                            // Mostrar opciones después del mensaje inmediatamente
+                                            showOptions(responses.after_purchase.options, responses.after_purchase.scrollButton);
+                                        }, 3000);
+                                    }, 1000);
+                                }, 3000);
+                                
+                                return;
+                            }
+                            
+                            // Para otras opciones con redirección, mantener el comportamiento original
+                            // Mostrar indicador de escritura
+                            showTypingIndicator();
+                            
+                            // Mostrar mensaje de bot después de 3 segundos
+                            setTimeout(() => {
+                                // Ocultar indicador de escritura
+                                hideTypingIndicator();
+                                
+                                // Mostrar mensaje de bot
+                                const messageElement = document.createElement('div');
+                                messageElement.className = 'bot-message';
+                                messageElement.innerHTML = responseData.message.replace(/\n/g, '<br>');
+                                chatMessages.appendChild(messageElement);
+                                
+                                // Mostrar redirección con cuenta regresiva
+                                setTimeout(() => {
+                                    showRedirectMessage(responseData.redirect);
+                                    
+                                    // Mostrar mensaje de seguimiento después de 5 segundos
+                                    setTimeout(() => {
+                                        // Mostrar indicador de escritura
+                                        showTypingIndicator();
+                                        
+                                        setTimeout(() => {
+                                            // Ocultar indicador de escritura
+                                            hideTypingIndicator();
+                                            
+                                            // Añadir mensaje de seguimiento
+                                            const followUpElement = document.createElement('div');
+                                            followUpElement.className = 'bot-message';
+                                            followUpElement.innerHTML = responses.after_purchase.message.replace(/\n/g, '<br>');
+                                            chatMessages.appendChild(followUpElement);
+                                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                                            
+                                            // Mostrar opciones después del mensaje
+                                            showOptions(responses.after_purchase.options, responses.after_purchase.scrollButton);
+                                        }, 3000);
+                                    }, 5000);
+                        }, 500);
+                            }, 3000);
+                            
+                            return;
+                        }
+                        
+                        // Agregar mensaje del bot con delay
+                        addBotMessage(responseData.message);
+                        
+                        // No es necesario este setTimeout ya que ahora showOptions se llama dentro de addBotMessage
+                        /*
+                        setTimeout(() => {
+                            const scrollBtn = responseData.scrollButton ? responseData.scrollButton : null;
+                            if (responseData.options && responseData.options.length > 0) {
+                                showOptions(responseData.options, scrollBtn);
+                            } else {
+                                // Si no hay opciones definidas, mostrar opciones de inicio
+                                showOptions(responses.inicio.options);
+                            }
+                        }, 3000);
+                        */
+                    }
+                });
+                
+                chatOptions.appendChild(button);
+            });
+        }
+        
+        // Funciones para abrir y cerrar el chatbot
+        function toggleChat() {
+            if (chatIsOpen) {
+                chatbotContainer.style.display = 'none';
+                chatIsOpen = false;
+            } else {
+            chatbotContainer.style.display = 'flex';
+            chatbotPopup.style.display = 'none';
+                chatIsOpen = true;
+                
+                // Si es la primera interacción, mostrar mensaje inicial
+                if (!hasInteracted) {
+                    // Limpiar mensajes anteriores
+                    chatMessages.innerHTML = '';
+                    
+                    // Mostrar indicador de escritura
+                    showTypingIndicator();
+                    
+                    // Mostrar mensaje inicial con delay reducido
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        
+                        // Añadir mensaje del bot
+                        const messageElement = document.createElement('div');
+                        messageElement.className = 'bot-message';
+                        messageElement.innerHTML = responses.inicio.message.replace(/\n/g, '<br>');
+                        chatMessages.appendChild(messageElement);
+                        
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                        
+                        // Mostrar opciones después del mensaje
+                        showOptions(responses.inicio.options);
+                    }, 3000); // Aumentado a 3 segundos
+                    
+                    hasInteracted = true;
+                }
+                
+                // Ajustar posición del scroll en dispositivos móviles
+                if (window.innerWidth <= 480) {
+                    window.scrollBy(0, -50);
+                }
+            }
+        }
+        
+        // Event Listeners
+        chatbotIcon.addEventListener('click', toggleChat);
+        closeButton.addEventListener('click', function() {
+            chatbotContainer.style.display = 'none';
+            chatIsOpen = false;
+        });
+        
+        // Mostrar popup después de 2 segundos
+        setTimeout(function() {
+            if (!chatIsOpen && !hasInteracted) {
+            chatbotPopup.style.display = 'block';
+            
+                // Ocultar popup después de 5 segundos si no hay interacción
+                setTimeout(function() {
+                    if (!chatIsOpen && !hasInteracted) {
+                    chatbotPopup.style.display = 'none';
+                }
+                }, 5000);
+            }
+        }, 2000);
+    });
+</script>
+<!-- FIN CHATBOT -->
+
 </body>
 </html> 
