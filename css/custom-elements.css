@@ -1,0 +1,173 @@
+:root {
+    --popup-bg: rgba(255, 255, 255, 0.95);
+    --popup-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    --popup-border: 1px solid rgba(0, 0, 0, 0.1);
+    --star-color: #f8c630;
+}
+
+/* Estilos para la sección de testimonios sociales */
+.social-proof {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 300px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.social-proof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.social-proof-count {
+    display: none;
+}
+
+.social-proof-name {
+    display: none;
+}
+
+.social-proof-stars {
+    color: var(--star-color);
+    font-size: 1.5rem;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.social-proof-rating {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Estilos para los popups de clientes satisfechos */
+.client-popups-container {
+    position: fixed;
+    bottom: 80px;
+    left: 15px;
+    z-index: 999;
+    max-width: 160px;
+    pointer-events: none;
+}
+
+.client-popup {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(231, 29, 54, 0.1);
+    padding: 8px;
+    margin-bottom: 8px;
+    max-width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.client-popup.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.client-popup-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.client-popup-name {
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 3px;
+    color: var(--primary-color);
+}
+
+.client-popup-text {
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+    line-height: 1.2;
+    color: #333;
+    font-style: italic;
+}
+
+.client-popup-stars {
+    color: var(--star-color);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+}
+
+/* Añadir un icono de comilla para los testimonios */
+.client-popup-text::before {
+    content: '"';
+    font-size: 1.1rem;
+    color: rgba(231, 29, 54, 0.2);
+    position: relative;
+    top: 2px;
+    left: -2px;
+}
+
+.client-popup-text::after {
+    content: '"';
+    font-size: 1.1rem;
+    color: rgba(231, 29, 54, 0.2);
+    position: relative;
+    top: 2px;
+    right: -2px;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .social-proof {
+        max-width: 200px;
+        padding: 10px;
+    }
+    
+    .client-popups-container {
+        max-width: 140px;
+        bottom: 70px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-proof {
+        max-width: 150px;
+        padding: 8px;
+    }
+    
+    .client-popups-container {
+        max-width: 130px;
+        bottom: 60px;
+        left: 5px;
+    }
+    
+    .client-popup {
+        padding: 6px;
+    }
+}
+
+/* Estilos para el iframe de YouTube */
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}

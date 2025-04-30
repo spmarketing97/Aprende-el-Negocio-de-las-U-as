@@ -1,33 +1,39 @@
 // Script para configurar informes automáticos de Google Analytics
 
-// Importación de bibliotecas necesarias para Google Analytics Data API
-const analyticsData = require('@google-analytics/data');
+// Configuración para Google Analytics Data API
+require('dotenv').config();
+const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 const nodemailer = require('nodemailer');
 const schedule = require('node-schedule');
 const fs = require('fs');
 const path = require('path');
 
-// Configuración de credenciales
-const credentials = {
-  email: "solucionesworld2016@gmail.com",
-  appPassword: "hvyj qclp lcuy gsgt",
-  targetEmail: "hristiankrasimirov7@gmail.com",
-  propertyId: "G-7QV6ZVLWCJ"
-};
+// Ruta al archivo de credenciales
+const credentialsPath = path.join(__dirname, '../Credencials/ga-credentials.json');
 
-// Cliente de Analytics Data API
-const analyticsDataClient = new analyticsData.BetaAnalyticsDataClient({
-  keyFilename: path.join(__dirname, 'service-account-key.json') // Archivo de credenciales de servicio
+// Configuración del cliente de Google Analytics
+const analyticsDataClient = new BetaAnalyticsDataClient({
+  keyFilename: credentialsPath,
 });
 
-// Configuración del transporte de correo
+// ID de la propiedad de Google Analytics
+const propertyId = 'G-7QV6ZVLWCJ';
+
+// Configuración del transporte de email
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: credentials.email,
-    pass: credentials.appPassword
+    user: 'solucionesworld2016@gmail.com',
+    pass: 'jgtq ucny jpxc nyoy'
   }
 });
+
+// Configuración del destinatario del informe
+const reportConfig = {
+  to: 'hristiankrasimirov7@gmail.com',
+  subject: 'Aprende El Negocio De Las Uñas',
+  schedule: '0 9 * * 1' // Todos los lunes a las 9:00 AM
+};
 
 // Función para obtener datos de Analytics
 async function getAnalyticsData() {
@@ -296,4 +302,4 @@ console.log('Servicio de informes analíticos iniciado. Los informes se enviará
 module.exports = {
   getAnalyticsData,
   sendAnalyticsReport
-}; 
+};
